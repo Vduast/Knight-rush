@@ -3,7 +3,7 @@ extends Node
 # Lista de niveles en orden
 var levels = [
 	"res://niveles/LEvel.tscn",
-	
+	"res://niveles/LEVEL2.tscn",
 ]
 
 var current_index: int = 0

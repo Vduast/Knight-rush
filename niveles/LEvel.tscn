@@ -82,7 +82,7 @@ texture = ExtResource("9_cged1")
 texture_scale = 29.07
 
 [node name="PointLight2D5" type="PointLight2D" parent="."]
-position = Vector2(991.99994, -400.00006)
+position = Vector2(1028, -387.00003)
 scale = Vector2(1, 1.245)
 color = Color(0.6995624, 0.53254104, 0.12505531, 1)
 energy = 12.35
