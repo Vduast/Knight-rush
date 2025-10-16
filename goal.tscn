@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dccitd1k65sbk"]
+
+[ext_resource type="Texture2D" uid="uid://dk25wvn4kxwtq" path="res://recursos/DOor.png" id="1_6k3qi"]
+[ext_resource type="Script" uid="uid://dx75dcds7svw2" path="res://goal.gd" id="2_0qle8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qle8"]
+size = Vector2(64, 128)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 64)
+scale = Vector2(4, 4)
+texture = ExtResource("1_6k3qi")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_0qle8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, 64)
+shape = SubResource("RectangleShape2D_0qle8")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://v8kkjeth6d3f"]
+
+[ext_resource type="Script" uid="uid://d2gl31bqokrbc" path="res://ui/deathmenu.gd" id="1_3cteg"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3cteg")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1144.0
+offset_bottom = 664.0
+color = Color(0.16862746, 0.16862746, 0.16862746, 0.5372549)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_direction = 1
+layout_mode = 0
+offset_left = -8.0
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "HAZ MUERTO"
+horizontal_alignment = 1
+
+[node name="reintentar" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Reintentar"
+
+[node name="menu" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Menu principal"
+
+[connection signal="pressed" from="Control/VBoxContainer/reintentar" to="." method="_on_reintentar_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/reintentar" to="Control" method="_on_reintentar_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/menu" to="Control" method="_on_menu_pressed"]
