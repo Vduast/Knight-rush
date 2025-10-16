@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuafh5jqjtnqs"]
+
+[ext_resource type="TileSet" uid="uid://bkq8mgaigobtb" path="res://niveles/paredes.tres" id="1_gussp"]
+[ext_resource type="PackedScene" uid="uid://cpsaxvvwqv80r" path="res://objetos/player.tscn" id="2_7epnc"]
+[ext_resource type="PackedScene" uid="uid://c7nds18umcrxu" path="res://objetos/lava.tscn" id="3_3xj06"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_gussp")
+
+[node name="Player" parent="." instance=ExtResource("2_7epnc")]
+position = Vector2(-31, 182)
+
+[node name="Area2D" parent="." instance=ExtResource("3_3xj06")]
+position = Vector2(29, 349)
