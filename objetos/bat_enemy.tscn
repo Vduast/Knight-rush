@@ -336,6 +336,6 @@ texture_filter = 1
 position = Vector2(0, 3)
 scale = Vector2(4.334, 4)
 sprite_frames = SubResource("SpriteFrames_olr7r")
-animation = &"death"
+animation = &"sleep"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

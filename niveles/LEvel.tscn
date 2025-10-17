@@ -108,7 +108,10 @@ position = Vector2(-656, -128)
 position = Vector2(-976, -128)
 
 [node name="BatEnemy" parent="." instance=ExtResource("8_n20jl")]
-position = Vector2(-96, 19)
+position = Vector2(767, 68)
+
+[node name="BatEnemy2" parent="." instance=ExtResource("8_n20jl")]
+position = Vector2(257, -637)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
