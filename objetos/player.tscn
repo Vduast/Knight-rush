@@ -23,7 +23,7 @@ shader_parameter/light_influence = 0.038000001805
 size = Vector2(64, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxtds"]
-size = Vector2(133, 64)
+size = Vector2(154.5, 128)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oe2k1"]
 
@@ -573,7 +573,7 @@ one_way_collision = true
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(32, 16)
+position = Vector2(32, 0)
 shape = SubResource("RectangleShape2D_mxtds")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

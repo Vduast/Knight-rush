@@ -9,7 +9,7 @@ const ATTACK_COOLDOWN = 1.0
 var health: int = 1
 var attacking: bool = false
 var attack_timer: float = 0.0
-var direction: int = -1   # -1 = izquierda, 1 = derecha
+var direction: int = 1   # 1 = derecha, -1 = izquierda
 var player_in_sight: bool = false
 
 # --- Referencias ---
@@ -17,11 +17,13 @@ var player_in_sight: bool = false
 @onready var attack_area: Area2D = $AttackArea
 @onready var vision_area: Area2D = $VisionArea
 @onready var floor_check: RayCast2D = $FloorCheck
+@onready var wall_check: RayCast2D = $WallCheck
 
 func _ready():
 	vision_area.body_entered.connect(_on_vision_entered)
 	vision_area.body_exited.connect(_on_vision_exited)
 	anim.animation_finished.connect(_on_animation_finished)
+	_flip_direction_nodes() # inicializar posiciones correctas
 
 func _physics_process(delta):
 	# Gravedad
@@ -41,6 +43,8 @@ func _physics_process(delta):
 		var player = get_tree().get_first_node_in_group("player")
 		if player:
 			direction = sign(player.global_position.x - global_position.x)
+			if direction == 0:
+				direction = 1
 			velocity.x = direction * SPEED
 			_flip_direction_nodes()
 
@@ -51,8 +55,8 @@ func _physics_process(delta):
 		# Patrulla simple
 		velocity.x = direction * SPEED
 
-		# --- Giro por pared o falta de suelo ---
-		if is_on_wall() or not floor_check.is_colliding():
+		# --- Giro por falta de suelo o pared ---
+		if not floor_check.is_colliding() or wall_check.is_colliding():
 			flip_direction()
 
 	move_and_slide()
@@ -108,9 +112,11 @@ func flip_direction():
 
 func _flip_direction_nodes():
 	# Sprite siempre mira hacia la dirección actual
-	anim.flip_h = direction > 0
+	# Si tu sprite base está mirando a la derecha:
+	anim.flip_h = direction < 0
 
 	# Reposicionar nodos hijos al lado correcto
-	attack_area.position.x = abs(attack_area.position.x) * direction
-	vision_area.position.x = abs(vision_area.position.x) * direction
-	floor_check.position.x = abs(floor_check.position.x) * direction
+	attack_area.position.x = 264 * direction
+	vision_area.position.x = 264 * direction
+	floor_check.position.x = 32 * direction
+	wall_check.position.x = 32 * direction

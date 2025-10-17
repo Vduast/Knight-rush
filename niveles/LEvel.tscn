@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cmotodxl2wa76"]
+[gd_scene load_steps=11 format=4 uid="uid://cmotodxl2wa76"]
 
 [ext_resource type="TileSet" uid="uid://0og8ucufrj50" path="res://niveles/fondotile.tres" id="1_n20jl"]
 [ext_resource type="TileSet" uid="uid://bkq8mgaigobtb" path="res://niveles/paredes.tres" id="2_fnv3f"]
 [ext_resource type="TileSet" uid="uid://b4a7r2hssunko" path="res://niveles/obstaculos.tres" id="3_wihi7"]
 [ext_resource type="PackedScene" uid="uid://c7nds18umcrxu" path="res://objetos/lava.tscn" id="7_wihi7"]
 [ext_resource type="Script" uid="uid://bghaddibpt6f1" path="res://addons/crt/crt.gd" id="8_1ukct"]
+[ext_resource type="PackedScene" uid="uid://c1h0vxnif8fbs" path="res://objetos/bat_enemy.tscn" id="8_n20jl"]
 [ext_resource type="PackedScene" uid="uid://cpsaxvvwqv80r" path="res://objetos/player.tscn" id="8_uguwb"]
 [ext_resource type="Texture2D" uid="uid://ugo62smw33gw" path="res://recursos/32x32 textures (19).png" id="9_cged1"]
 [ext_resource type="PackedScene" uid="uid://dccitd1k65sbk" path="res://goal.tscn" id="10_80sw3"]
@@ -105,6 +106,9 @@ position = Vector2(-656, -128)
 
 [node name="Area2D3" parent="." instance=ExtResource("7_wihi7")]
 position = Vector2(-976, -128)
+
+[node name="BatEnemy" parent="." instance=ExtResource("8_n20jl")]
+position = Vector2(-96, 19)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

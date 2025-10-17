@@ -203,9 +203,7 @@ shape = SubResource("RectangleShape2D_dvi4o")
 position = Vector2(40.000004, 0)
 scale = Vector2(1.875, 2)
 sprite_frames = SubResource("SpriteFrames_73a2l")
-animation = &"death"
-frame = 3
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="VisionArea" type="Area2D" parent="."]
 
@@ -220,5 +218,9 @@ position = Vector2(168, 56)
 shape = SubResource("RectangleShape2D_73a2l")
 
 [node name="FloorCheck" type="RayCast2D" parent="."]
-position = Vector2(72, 40)
-target_position = Vector2(24, 112)
+position = Vector2(80, 40)
+target_position = Vector2(0, 96)
+
+[node name="WallCheck" type="RayCast2D" parent="."]
+position = Vector2(80, 8)
+target_position = Vector2(0, 104)
