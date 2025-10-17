@@ -6,15 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://64luyh3xqou3" path="res://recursos/bat/Bat-Sleep.png" id="2_woht4"]
 [ext_resource type="Texture2D" uid="uid://wgix3o5y5t0o" path="res://recursos/bat/Bat-WakeUp.png" id="4_o0eax"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_olr7r"]
-radius = 64.195015
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdlds"]
-size = Vector2(256, 85.45833)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_o0eax"]
-radius = 64.195015
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ae1b0"]
 atlas = ExtResource("2_o0eax")
 region = Rect2(0, 0, 64, 64)
@@ -311,14 +302,31 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_olr7r"]
+radius = 40.311287
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdlds"]
+size = Vector2(256, 85.45833)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o0eax"]
+radius = 48.259712
+
 [node name="BatEnemy" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_sdlds")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 3)
+scale = Vector2(4.334, 4)
+sprite_frames = SubResource("SpriteFrames_olr7r")
+animation = &"sleep"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_olr7r")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(0, 63.8125)
@@ -331,11 +339,6 @@ shape = SubResource("RectangleShape2D_sdlds")
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_o0eax")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, 3)
-scale = Vector2(4.334, 4)
-sprite_frames = SubResource("SpriteFrames_olr7r")
-animation = &"sleep"
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
