@@ -11,24 +11,23 @@ var health: int = 1
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
 @onready var hitbox: Area2D = $Hitbox
+@onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
 func _ready():
-	add_to_group("enemy")
-	detection_area.body_entered.connect(_on_detection_area_body_entered)
+	
 	hitbox.body_entered.connect(_on_hitbox_body_entered)
 	anim.play("sleep")
 
 func _physics_process(delta):
 	match state:
-		State.SLEEP:
-			velocity = Vector2.ZERO
-
-		State.WAKEUP:
+		State.SLEEP, State.WAKEUP:
 			velocity = Vector2.ZERO
 
 		State.ATTACK:
 			if target and is_instance_valid(target):
-				var dir = (target.global_position - global_position).normalized()
+				nav_agent.target_position = target.global_position
+				var next_pos = nav_agent.get_next_path_position()
+				var dir = (next_pos - global_position).normalized()
 				velocity = dir * SPEED
 			else:
 				state = State.SLEEP
@@ -36,7 +35,6 @@ func _physics_process(delta):
 				velocity = Vector2.ZERO
 
 		State.DEAD:
-			# Solo gravedad al morir
 			if not is_on_floor():
 				velocity.y += GRAVITY * delta
 			else:
@@ -70,20 +68,13 @@ func take_damage():
 		if health <= 0:
 			die()
 
-# --- Muerte ---
 func die():
 	if state == State.DEAD:
 		return
 
 	state = State.DEAD
 	health = 0
-
-	# reproducir animación de muerte si existe
-	
 	anim.play("death")
-	
-
-	# conectar eliminación al terminar la animación
 	if not anim.animation_finished.is_connected(_on_death_animation_finished):
 		anim.animation_finished.connect(_on_death_animation_finished, Object.CONNECT_ONE_SHOT)
 

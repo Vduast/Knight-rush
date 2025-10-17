@@ -20,8 +20,6 @@ var player_in_sight: bool = false
 @onready var wall_check: RayCast2D = $WallCheck
 
 func _ready():
-	vision_area.body_entered.connect(_on_vision_entered)
-	vision_area.body_exited.connect(_on_vision_exited)
 	anim.animation_finished.connect(_on_animation_finished)
 	_flip_direction_nodes() # inicializar posiciones correctas
 
@@ -86,14 +84,7 @@ func _on_animation_finished():
 	elif anim.animation == "death":
 		queue_free()
 
-# --- Visión ---
-func _on_vision_entered(body):
-	if body.is_in_group("player"):
-		player_in_sight = true
 
-func _on_vision_exited(body):
-	if body.is_in_group("player"):
-		player_in_sight = false
 
 # --- Daño ---
 func take_damage():
@@ -120,3 +111,14 @@ func _flip_direction_nodes():
 	vision_area.position.x = 264 * direction
 	floor_check.position.x = 32 * direction
 	wall_check.position.x = 32 * direction
+
+
+func _on_vision_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		player_in_sight = true
+
+
+
+func _on_vision_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		player_in_sight = false
