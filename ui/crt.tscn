@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://2o0h2rn413ci"]
+
+[ext_resource type="Script" uid="uid://bghaddibpt6f1" path="res://addons/crt/crt.gd" id="1_otife"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="CRT" type="CanvasLayer" parent="."]
+script = ExtResource("1_otife")
+resolution = Vector2(1280, 720)
+scan_line_amount = 0.5
+interference_amount = 1.0
+grille_amount = 0.2
+roll_line_amount = 0.0
+pixel_strength = 0.0
+metadata/_custom_type_script = "uid://bghaddibpt6f1"

@@ -97,6 +97,8 @@ func _ready() -> void:
 	var color_rect = ColorRect.new()
 	color_rect.color = Color.WHITE
 	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 
 	material = ShaderMaterial.new()
 	material.shader = load("res://addons/crt/crt.gdshader")
