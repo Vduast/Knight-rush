@@ -21,4 +21,9 @@ alignment = 1
 layout_mode = 2
 text = "nivel 1"
 
+[node name="Nivel 2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Nivel 2"
+
 [connection signal="pressed" from="VBoxContainer/nivel1" to="." method="_on_nivel_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Nivel 2" to="." method="_on_nivel_2_pressed"]

@@ -227,6 +227,8 @@ func play_animation():
 			var going_left = velocity.x < 0
 			anim.flip_h = going_left
 			anim.offset.x = -FLIP_OFFSET if going_left else FLIP_OFFSET
+			var hitbox = $AttackArea
+			hitbox.position.x = -120 if going_left else 120
 
 # --- Slide ---
 func start_slide(dir: int):
@@ -266,7 +268,7 @@ func perform_attack():
 
 	# Ajustar hitbox según flip
 	var hitbox = $AttackArea
-	hitbox.position.x = -120 if anim.flip_h else 120
+	
 
 	for body in hitbox.get_overlapping_bodies():
 		if body.is_in_group("enemies"):
