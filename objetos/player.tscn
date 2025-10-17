@@ -577,7 +577,7 @@ position = Vector2(32, 0)
 shape = SubResource("RectangleShape2D_mxtds")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.61339027, 0.61339027, 0.61339027, 1)
+modulate = Color(0.48962247, 0.48962212, 0.4896223, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_oe2k1")
 position = Vector2(32, -56.000004)

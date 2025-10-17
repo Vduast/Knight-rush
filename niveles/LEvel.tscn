@@ -52,11 +52,23 @@ collision_layer = 3
 collision_mask = 3
 collision_priority = 10.0
 
+[node name="BatEnemy" parent="." instance=ExtResource("8_n20jl")]
+position = Vector2(858, 55)
+
+[node name="BatEnemy3" parent="." instance=ExtResource("8_n20jl")]
+position = Vector2(538, 53)
+
+[node name="BatEnemy2" parent="." instance=ExtResource("8_n20jl")]
+position = Vector2(217, -631)
+
+[node name="skeleto" parent="." instance=ExtResource("10_6l0kd")]
+position = Vector2(1216, -196)
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(1656, -196.00008)
 scale = Vector2(1, 1.245)
-color = Color(0.6995624, 0.53254104, 0.12505531, 1)
-energy = 12.35
+color = Color(3.449, 1.848, 0, 1)
+energy = 16.0
 shadow_enabled = true
 shadow_filter = 2
 texture = ExtResource("9_cged1")
@@ -65,8 +77,8 @@ texture_scale = 29.07
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(247.99997, 71.999985)
 scale = Vector2(1, 1.245)
-color = Color(0.6995624, 0.53254104, 0.12505531, 1)
-energy = 12.35
+color = Color(3.4489388, 1.8480381, 0, 1)
+energy = 16.0
 shadow_enabled = true
 shadow_filter = 2
 texture = ExtResource("9_cged1")
@@ -75,8 +87,8 @@ texture_scale = 29.07
 [node name="PointLight2D3" type="PointLight2D" parent="."]
 position = Vector2(376, -583.99994)
 scale = Vector2(1, 1.245)
-color = Color(0.6995624, 0.53254104, 0.12505531, 1)
-energy = 12.35
+color = Color(3.449, 1.848, 0, 1)
+energy = 16.0
 shadow_enabled = true
 shadow_filter = 2
 texture = ExtResource("9_cged1")
@@ -85,8 +97,8 @@ texture_scale = 29.07
 [node name="PointLight2D4" type="PointLight2D" parent="."]
 position = Vector2(-384, -1024)
 scale = Vector2(1, 1.245)
-color = Color(0.6995624, 0.53254104, 0.12505531, 1)
-energy = 12.35
+color = Color(3.449, 1.848, 0, 1)
+energy = 16.0
 shadow_enabled = true
 shadow_filter = 2
 texture = ExtResource("9_cged1")
@@ -95,8 +107,8 @@ texture_scale = 29.07
 [node name="PointLight2D5" type="PointLight2D" parent="."]
 position = Vector2(1028, -387.00003)
 scale = Vector2(1, 1.245)
-color = Color(0.6995624, 0.53254104, 0.12505531, 1)
-energy = 12.35
+color = Color(3.449, 1.848, 0, 1)
+energy = 16.0
 shadow_enabled = true
 shadow_filter = 2
 texture = ExtResource("9_cged1")
@@ -116,15 +128,3 @@ position = Vector2(-656, -128)
 
 [node name="Area2D3" parent="." instance=ExtResource("7_wihi7")]
 position = Vector2(-976, -128)
-
-[node name="BatEnemy" parent="." instance=ExtResource("8_n20jl")]
-position = Vector2(858, 55)
-
-[node name="BatEnemy3" parent="." instance=ExtResource("8_n20jl")]
-position = Vector2(538, 53)
-
-[node name="BatEnemy2" parent="." instance=ExtResource("8_n20jl")]
-position = Vector2(217, -631)
-
-[node name="skeleto" parent="." instance=ExtResource("10_6l0kd")]
-position = Vector2(-167, 54)
